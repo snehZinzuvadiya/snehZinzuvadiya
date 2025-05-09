@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneh Zinzuvadiya | Professional Video Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #1A237E;
+            --charcoal: #212121;
+            --white: #FFFFFF;
+            --accent: #2196F3;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--charcoal);
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(33, 33, 33, 0.9)), url('https://images.unsplash.com/photo-1574717024453-e599429d6dde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--deep-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background-color: #f5f7ff;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .social-icon {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">Sneh Zinzuvadiya</h1>
+                <p class="text-xl md:text-2xl mb-6">Professional Video Editor | Gujarat, India</p>
+                <p class="text-lg md:text-xl mb-8">Transforming your stories into cinematic experiences</p>
+                <a href="https://www.youtube.com/watch?v=yaoAUKdeTd8" target="_blank" class="btn-primary px-8 py-3 rounded-full text-white font-semibold inline-block">
+                    <i class="fas fa-play mr-2"></i> Watch My Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">About Me</h2>
+            <div class="max-w-3xl mx-auto mt-12 fade-in">
+                <p class="text-lg leading-relaxed text-gray-700">
+                    Hi, I'm Sneh Zinzuvadiya, a passionate video editor based in Gujarat, India. I specialize in editing cinematic videos, short films, YouTube content, Instagram reels, and much more. My mission is to bring your vision to life with creativity, precision, and a keen eye for storytelling. Whether you need a dramatic short film, a viral social media clip, or a polished YouTube video, I deliver results that captivate and engage your audience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">My Portfolio</h2>
+            <div class="max-w-4xl mx-auto mt-12 fade-in">
+                <div class="aspect-w-16 aspect-h-9 mb-4">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/yaoAUKdeTd8" title="Cinematic Video Edited by Sneh Zinzuvadiya" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="text-center text-lg text-gray-700 mt-4">Cinematic Video Edited by Me</p>
+                
+                <!-- Gallery Grid for Future Projects -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold text-center mb-8">More Projects</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Placeholder for future projects -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-gray-200 h-48 flex items-center justify-center">
+                                <i class="fas fa-film text-4xl text-gray-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-center text-gray-500">Future Project</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-gray-200 h-48 flex items-center justify-center">
+                                <i class="fas fa-film text-4xl text-gray-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-center text-gray-500">Future Project</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-gray-200 h-48 flex items-center justify-center">
+                                <i class="fas fa-film text-4xl text-gray-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-center text-gray-500">Future Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">Skills & Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-video" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Video Editing</h3>
+                    <p class="text-gray-700 text-center">Wondershare Filmora, DaVinci Resolve</p>
+                </div>
+                
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-magic" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Motion Graphics</h3>
+                    <p class="text-gray-700 text-center">Proficient in After Effects and animated visual effects</p>
+                </div>
+                
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-palette" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Color Grading</h3>
+                    <p class="text-gray-700 text-center">Enhancing visual tone and mood with advanced color correction techniques</p>
+                </div>
+                
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-volume-up" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Sound Editing</h3>
+                    <p class="text-gray-700 text-center">Optimizing audio effects for immersive storytelling</p>
+                </div>
+                
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-hashtag" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">Social Media & YouTube Editing</h3>
+                    <p class="text-gray-700 text-center">Creating high-impact content for digital platforms</p>
+                </div>
+                
+                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-accent text-5xl mb-4 flex justify-center">
+                        <i class="fas fa-brain" style="color: #2196F3;"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">AI Video Enhancement</h3>
+                    <p class="text-gray-700 text-center">Leveraging AI tools for efficient editing and automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">What Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="testimonial-card fade-in p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="rounded-full bg-deep-blue w-12 h-12 flex items-center justify-center text-white">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold">Client Name</p>
+                            <p class="text-sm text-gray-600">Position/Company</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Sneh delivered outstanding editing for our short film. Highly recommended!"</p>
+                </div>
+                
+                <div class="testimonial-card fade-in p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="rounded-full bg-deep-blue w-12 h-12 flex items-center justify-center text-white">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold">Client Name</p>
+                            <p class="text-sm text-gray-600">Position/Company</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Professional, creative, and always on time. My go-to editor for all my YouTube videos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-envelope mr-4 text-deep-blue text-xl"></i>
+                        <a href="mailto:sneh2006.zinzuavdiya@gmail.com" class="text-gray-700 hover:text-accent transition-colors">sneh2006.zinzuavdiya@gmail.com</a>
+                    </div>
+                    <div class="flex items-center mb-8">
+                        <i class="fas fa-phone-alt mr-4 text-deep-blue text-xl"></i>
+                        <a href="tel:9054434117" class="text-gray-700 hover:text-accent transition-colors">9054434117</a>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/watch?v=yaoAUKdeTd8" target="_blank" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <form class="contact-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-lg text-white font-semibold">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-deep-blue text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex justify-center md:justify-start space-x-6 mb-4">
+                        <a href="#home" class="hover:text-accent transition-colors">Home</a>
+                        <a href="#portfolio" class="hover:text-accent transition-colors">Portfolio</a>
+                        <a href="#about" class="hover:text-accent transition-colors">About</a>
+                        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                    </div>
+                    <p>© 2025 Sneh Zinzuvadiya. All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#home" class="btn-primary px-6 py-2 rounded-full text-white inline-block">
+                        <i class="fas fa-arrow-up mr-2"></i> Back to Top
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation for elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkFade();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
+        });
+    </script>
+</body>
+</html>
