@@ -3,186 +3,585 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneh Zinzuvadiya | Professional Video Editor</title>
+    <title>Sneh Zinzuvadiya | Creative Video Editor</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-blue: #1A237E;
-            --charcoal: #212121;
-            --white: #FFFFFF;
-            --accent: #2196F3;
-        }
-        
-        html {
-            scroll-behavior: smooth;
+            --primary-color: #1A237E;
+            --secondary-color: #212121;
+            --accent-color: #00E5FF;
+            --vibrant-purple: #9C27B0;
+            --vibrant-orange: #FF5722;
+            --gradient-start: #6200EA;
+            --gradient-end: #00B8D4;
         }
         
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--charcoal);
-            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+            background-color: #0F0F1A;
+            color: #ffffff;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5 {
             font-family: 'Montserrat', sans-serif;
         }
         
-        .hero-section {
-            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(33, 33, 33, 0.9)), url('https://images.unsplash.com/photo-1574717024453-e599429d6dde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10,10,30,0.8) 0%, rgba(26,35,126,0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            z-index: -1;
+            filter: brightness(0.5);
         }
         
         .section-title {
             position: relative;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            bottom: -10px;
-            width: 100px;
+            width: 80px;
             height: 4px;
-            background: var(--accent);
+            background: linear-gradient(90deg, var(--accent-color), var(--vibrant-purple));
+            border-radius: 2px;
         }
         
         .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-color), var(--vibrant-purple));
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
         .btn-primary:hover {
-            background-color: var(--deep-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.5);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
         }
         
         .skill-card {
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #131326, #1C1C36);
+            box-shadow: 8px 8px 16px #0a0a14, -8px -8px 16px #1e1e3c;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
         
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 12px 12px 24px #0a0a14, -12px -12px 24px #1e1e3c;
         }
         
-        .testimonial-card {
-            background-color: #f5f7ff;
-            transition: all 0.3s ease;
+        .skill-icon {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            box-shadow: 0 10px 20px rgba(98, 0, 234, 0.3);
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+            transition: all 0.4s ease;
         }
         
-        .testimonial-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        .skill-card:hover .skill-icon {
+            transform: translateZ(30px) scale(1.1);
         }
         
-        .social-icon {
-            background-color: var(--deep-blue);
-            color: var(--white);
-            transition: all 0.3s ease;
+        .testimony-card {
+            background: rgba(30, 30, 60, 0.5);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
         }
         
-        .social-icon:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .testimony-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(156, 39, 176, 0.1), transparent);
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.6s ease;
         }
         
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
+        .testimony-card:hover::before {
+            animation: shine 1.5s infinite;
         }
-
+        
+        @keyframes shine {
+            0% {
+                top: -50%;
+                left: -50%;
+            }
+            100% {
+                top: 150%;
+                left: 150%;
+            }
+        }
+        
         .contact-form input,
         .contact-form textarea {
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
             transition: all 0.3s ease;
         }
         
         .contact-form input:focus,
         .contact-form textarea:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2);
+            outline: none;
+        }
+        
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1A237E, #3949AB);
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) rotateY(15deg);
+            background: linear-gradient(135deg, var(--vibrant-purple), var(--accent-color));
+            box-shadow: 0 8px 15px rgba(0, 229, 255, 0.3);
+        }
+        
+        .film-reel {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #333, #111);
+            border: 12px dashed rgba(255, 255, 255, 0.2);
+            animation: rotate 10s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .video-camera {
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            background: #222;
+            border-radius: 10px;
+            transform: perspective(500px) rotateY(-15deg);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        .video-camera::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            top: 10px;
+            left: -20px;
+            border: 5px solid #444;
+        }
+        
+        .video-camera::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 5px;
+            right: 10px;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: blink 1.5s infinite alternate;
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .timeline-element {
+            position: absolute;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--vibrant-purple), var(--vibrant-orange));
+            border-radius: 2px;
+            z-index: 0;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            width: 12px;
+            height: 20px;
+            background: white;
+            border-radius: 2px;
+            animation: moveMarker 8s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes moveMarker {
+            0% {
+                left: 0%;
+            }
+            100% {
+                left: calc(100% - 12px);
+            }
+        }
+        
+        .glowing-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-color), var(--vibrant-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .clip-path-element {
+            clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
+            transition: all 0.5s ease;
+        }
+        
+        .clip-path-element:hover {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        
+        /* Decorative elements */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            filter: blur(3px);
+            z-index: -1;
+        }
+        
+        /* Fix for smooth scrolling in PDF */
+        @media print {
+            html, body {
+                width: 210mm;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Decorative elements -->
+    <div class="circle-decoration" style="width: 300px; height: 300px; top: 20%; left: -150px; opacity: 0.5;"></div>
+    <div class="circle-decoration" style="width: 200px; height: 200px; top: 50%; right: -100px; opacity: 0.3;"></div>
+    <div class="circle-decoration" style="width: 400px; height: 400px; bottom: 10%; left: 30%; opacity: 0.2;"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-opacity-70 backdrop-filter backdrop-blur-lg bg-gray-900 shadow-lg z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">SZ</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#about" class="text-white hover:text-cyan-400 transition-colors">About</a>
+                <a href="#portfolio" class="text-white hover:text-cyan-400 transition-colors">Portfolio</a>
+                <a href="#skills" class="text-white hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="text-white hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center text-center text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <h1 class="text-5xl md:text-6xl font-bold mb-4">Sneh Zinzuvadiya</h1>
-                <p class="text-xl md:text-2xl mb-6">Professional Video Editor | Gujarat, India</p>
-                <p class="text-lg md:text-xl mb-8">Transforming your stories into cinematic experiences</p>
-                <a href="https://www.youtube.com/watch?v=yaoAUKdeTd8" target="_blank" class="btn-primary px-8 py-3 rounded-full text-white font-semibold inline-block">
-                    <i class="fas fa-play mr-2"></i> Watch My Work
-                </a>
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative py-20">
+        <!-- 3D Film Reel Elements -->
+        <div class="film-reel" style="top: 15%; left: 10%;"></div>
+        <div class="film-reel" style="bottom: 20%; right: 5%;"></div>
+        
+        <!-- Video Camera Element -->
+        <div class="video-camera" style="bottom: 15%; left: 15%;"></div>
+        
+        <!-- Timeline Element -->
+        <div class="timeline-element" style="bottom: 30%; left: 10%; width: 200px;">
+            <div class="timeline-marker"></div>
+        </div>
+        
+        <!-- Glowing Dots -->
+        <div class="glowing-dot" style="top: 20%; right: 25%;"></div>
+        <div class="glowing-dot" style="top: 40%; right: 40%;"></div>
+        <div class="glowing-dot" style="top: 70%; left: 35%;"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 transform transition-all hover:scale-105" style="text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);">
+                <span class="gradient-text">Sneh Zinzuvadiya</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl mb-6 text-gray-300">Professional Video Editor | Gujarat, India</h2>
+            <p class="text-2xl md:text-3xl mb-10 max-w-2xl mx-auto text-white">
+                Transforming your stories into <span class="text-cyan-400 font-semibold">cinematic experiences</span>
+            </p>
+            <a href="https://www.youtube.com/watch?v=yaoAUKdeTd8" target="_blank" class="btn-primary inline-flex items-center group">
+                <span>Watch My Work</span>
+                <i class="fas fa-play-circle ml-2 transform group-hover:rotate-12"></i>
+            </a>
+        </div>
+        
+        <!-- Floating 3D Shape -->
+        <div class="absolute right-10 md:right-20 top-1/3 w-36 h-36 floating-element hidden md:block">
+            <div class="w-full h-full bg-gradient-to-br from-purple-600 to-cyan-400 opacity-70 rounded-lg transform rotate-12 perspective">
+                <div class="w-full h-full bg-gradient-to-br from-purple-600 to-cyan-400 opacity-70 absolute top-4 left-4 rounded-lg transform rotate-12"></div>
             </div>
         </div>
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">About Me</h2>
-            <div class="max-w-3xl mx-auto mt-12 fade-in">
-                <p class="text-lg leading-relaxed text-gray-700">
-                    Hi, I'm Sneh Zinzuvadiya, a passionate video editor based in Gujarat, India. I specialize in editing cinematic videos, short films, YouTube content, Instagram reels, and much more. My mission is to bring your vision to life with creativity, precision, and a keen eye for storytelling. Whether you need a dramatic short film, a viral social media clip, or a polished YouTube video, I deliver results that captivate and engage your audience.
-                </p>
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-indigo-900 relative">
+        <!-- Decorative elements -->
+        <div class="film-reel opacity-30" style="top: 30%; right: 5%; width: 80px; height: 80px;"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center section-title">About Me</h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center mt-16 gap-10">
+                <div class="md:w-1/3 relative clip-path-element bg-gradient-to-br from-indigo-700 to-purple-700 rounded-xl overflow-hidden shadow-2xl transform transition-all hover:rotate-3">
+                    <div class="p-8">
+                        <div class="w-full h-64 bg-gradient-to-br from-cyan-500 to-purple-700 rounded-lg mb-6 overflow-hidden relative">
+                            <!-- Profile picture placeholder -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-user-circle text-8xl text-white opacity-50"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-center text-white mb-2">Sneh Zinzuvadiya</h3>
+                        <p class="text-center text-cyan-200">Video Editor Extraordinaire</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 mt-10 md:mt-0 relative">
+                    <div class="timeline-element" style="top: -10px; left: 0; width: 100%;"></div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-300">
+                        Hi, I'm <span class="text-cyan-400 font-semibold">Sneh Zinzuvadiya</span>, a passionate video editor based in Gujarat, India. I specialize in editing cinematic videos, short films, YouTube content, Instagram reels, and much more.
+                    </p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-300">
+                        My mission is to bring your vision to life with <span class="gradient-text font-semibold">creativity, precision, and a keen eye for storytelling</span>. Whether you need a dramatic short film, a viral social media clip, or a polished YouTube video, I deliver results that captivate and engage your audience.
+                    </p>
+                    
+                    <div class="mt-10 flex items-center space-x-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center">
+                            <i class="fas fa-film text-white"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center">
+                            <i class="fas fa-cut text-white"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center">
+                            <i class="fas fa-music text-white"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">My Portfolio</h2>
-            <div class="max-w-4xl mx-auto mt-12 fade-in">
-                <div class="aspect-w-16 aspect-h-9 mb-4">
-                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/yaoAUKdeTd8" title="Cinematic Video Edited by Sneh Zinzuvadiya" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section id="portfolio" class="py-20 bg-gray-900 relative">
+        <!-- 3D Elements -->
+        <div class="film-reel" style="top: 20%; left: 5%;"></div>
+        <div class="video-camera" style="bottom: 10%; right: 10%;"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center section-title">My Portfolio</h2>
+            
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl transform transition-all hover:scale-105" style="box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-purple-600 to-cyan-400 rounded-full opacity-30 blur-md"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full opacity-30 blur-md"></div>
+                    
+                    <div class="relative w-full aspect-w-16 aspect-h-9 bg-black">
+                        <iframe 
+                            width="100%" 
+                            height="500" 
+                            src="https://www.youtube.com/embed/yaoAUKdeTd8" 
+                            title="Cinematic Video Edited by Sneh Zinzuvadiya" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="absolute inset-0 w-full h-full">
+                        </iframe>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-indigo-900 to-purple-900 p-6 text-center">
+                        <h3 class="text-xl font-semibold text-white">Cinematic Video Edited by Me</h3>
+                    </div>
                 </div>
-                <p class="text-center text-lg text-gray-700 mt-4">Cinematic Video Edited by Me</p>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Future project placeholders with 3D styling -->
+                <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-indigo-900 shadow-xl transform transition-all hover:scale-105 hover:rotate-2" style="box-shadow: 0 10px 30px rgba(156, 39, 176, 0.2);">
+                    <div class="h-48 bg-gray-700 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-film text-6xl text-gray-600"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                        <div class="absolute bottom-0 w-full p-4">
+                            <div class="timeline-element" style="bottom: 15px; left: 10%; width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-cyan-300">Future Project</h3>
+                        <p class="text-gray-400 mt-2">Description of upcoming video project</p>
+                    </div>
+                </div>
                 
-                <!-- Gallery Grid for Future Projects -->
-                <div class="mt-16">
-                    <h3 class="text-2xl font-semibold text-center mb-8">More Projects</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Placeholder for future projects -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="bg-gray-200 h-48 flex items-center justify-center">
-                                <i class="fas fa-film text-4xl text-gray-400"></i>
-                            </div>
-                            <div class="p-4">
-                                <p class="text-center text-gray-500">Future Project</p>
-                            </div>
+                <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-purple-900 shadow-xl transform transition-all hover:scale-105 hover:rotate-2" style="box-shadow: 0 10px 30px rgba(156, 39, 176, 0.2);">
+                    <div class="h-48 bg-gray-700 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-video text-6xl text-gray-600"></i>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="bg-gray-200 h-48 flex items-center justify-center">
-                                <i class="fas fa-film text-4xl text-gray-400"></i>
-                            </div>
-                            <div class="p-4">
-                                <p class="text-center text-gray-500">Future Project</p>
-                            </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                        <div class="absolute bottom-0 w-full p-4">
+                            <div class="timeline-element" style="bottom: 15px; left: 10%; width: 80%;"></div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="bg-gray-200 h-48 flex items-center justify-center">
-                                <i class="fas fa-film text-4xl text-gray-400"></i>
-                            </div>
-                            <div class="p-4">
-                                <p class="text-center text-gray-500">Future Project</p>
-                            </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-cyan-300">Future Project</h3>
+                        <p class="text-gray-400 mt-2">Description of upcoming video project</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-cyan-900 shadow-xl transform transition-all hover:scale-105 hover:rotate-2" style="box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);">
+                    <div class="h-48 bg-gray-700 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-photo-video text-6xl text-gray-600"></i>
                         </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                        <div class="absolute bottom-0 w-full p-4">
+                            <div class="timeline-element" style="bottom: 15px; left: 10%; width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-cyan-300">Future Project</h3>
+                        <p class="text-gray-400 mt-2">Description of upcoming video project</p>
                     </div>
                 </div>
             </div>
@@ -190,140 +589,219 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">Skills & Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-video" style="color: #2196F3;"></i>
+    <section id="skills" class="py-20 bg-gradient-to-b from-indigo-900 to-gray-900 relative">
+        <!-- Decorative elements -->
+        <div class="glowing-dot" style="top: 30%; left: 10%;"></div>
+        <div class="glowing-dot" style="top: 60%; right: 20%;"></div>
+        <div class="glowing-dot" style="bottom: 20%; left: 30%;"></div>
+        
+        <div class="timeline-element" style="top: 10%; left: 20%; width: 200px;"></div>
+        <div class="timeline-element" style="bottom: 20%; right: 20%; width: 150px;"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center section-title">Skills & Expertise</h2>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Cards with 3D effects -->
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fas fa-cut text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">Video Editing</h3>
-                    <p class="text-gray-700 text-center">Wondershare Filmora, DaVinci Resolve</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">Video Editing</h3>
+                    <p class="text-gray-300 text-center">
+                        Wondershare Filmora, DaVinci Resolve with advanced cutting techniques for seamless transitions.
+                    </p>
                 </div>
                 
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-magic" style="color: #2196F3;"></i>
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fas fa-magic text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">Motion Graphics</h3>
-                    <p class="text-gray-700 text-center">Proficient in After Effects and animated visual effects</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">Motion Graphics</h3>
+                    <p class="text-gray-300 text-center">
+                        Proficient in After Effects and animated visual effects to add dynamic elements to your videos.
+                    </p>
                 </div>
                 
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-palette" style="color: #2196F3;"></i>
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">Color Grading</h3>
-                    <p class="text-gray-700 text-center">Enhancing visual tone and mood with advanced color correction techniques</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">Color Grading</h3>
+                    <p class="text-gray-300 text-center">
+                        Enhancing visual tone and mood with advanced color correction techniques.
+                    </p>
                 </div>
                 
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-volume-up" style="color: #2196F3;"></i>
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fas fa-volume-up text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">Sound Editing</h3>
-                    <p class="text-gray-700 text-center">Optimizing audio effects for immersive storytelling</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">Sound Editing</h3>
+                    <p class="text-gray-300 text-center">
+                        Optimizing audio effects for immersive storytelling that complements the visuals.
+                    </p>
                 </div>
                 
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-hashtag" style="color: #2196F3;"></i>
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fab fa-youtube text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">Social Media & YouTube Editing</h3>
-                    <p class="text-gray-700 text-center">Creating high-impact content for digital platforms</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">Social Media & YouTube</h3>
+                    <p class="text-gray-300 text-center">
+                        Creating high-impact content for digital platforms with engagement-optimized editing.
+                    </p>
                 </div>
                 
-                <div class="skill-card fade-in bg-white p-8 rounded-lg shadow-md">
-                    <div class="text-accent text-5xl mb-4 flex justify-center">
-                        <i class="fas fa-brain" style="color: #2196F3;"></i>
+                <div class="skill-card p-8">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot text-white"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-center mb-4">AI Video Enhancement</h3>
-                    <p class="text-gray-700 text-center">Leveraging AI tools for efficient editing and automation</p>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-cyan-300">AI Video Enhancement</h3>
+                    <p class="text-gray-300 text-center">
+                        Leveraging AI tools for efficient editing and automation to deliver stunning results.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">What Clients Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="testimonial-card fade-in p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="rounded-full bg-deep-blue w-12 h-12 flex items-center justify-center text-white">
-                            <i class="fas fa-user"></i>
+    <section id="testimonials" class="py-20 bg-gray-900 relative">
+        <!-- Decorative elements -->
+        <div class="film-reel opacity-30" style="top: 10%; right: 10%; width: 80px; height: 80px;"></div>
+        <div class="film-reel opacity-30" style="bottom: 20%; left: 10%; width: 60px; height: 60px;"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center section-title">What Clients Say</h2>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimony-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white text-xl"></i>
                         </div>
-                        <div class="ml-4">
-                            <p class="font-semibold">Client Name</p>
-                            <p class="text-sm text-gray-600">Position/Company</p>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Client Name</h3>
+                            <p class="text-cyan-400">Short Film Director</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic">"Sneh delivered outstanding editing for our short film. Highly recommended!"</p>
+                    <p class="text-gray-300 italic">
+                        "Sneh delivered outstanding editing for our short film. Highly recommended!"
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
                 
-                <div class="testimonial-card fade-in p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="rounded-full bg-deep-blue w-12 h-12 flex items-center justify-center text-white">
-                            <i class="fas fa-user"></i>
+                <div class="testimony-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white text-xl"></i>
                         </div>
-                        <div class="ml-4">
-                            <p class="font-semibold">Client Name</p>
-                            <p class="text-sm text-gray-600">Position/Company</p>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Client Name</h3>
+                            <p class="text-cyan-400">YouTuber</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic">"Professional, creative, and always on time. My go-to editor for all my YouTube videos."</p>
+                    <p class="text-gray-300 italic">
+                        "Professional, creative, and always on time. My go-to editor for all my YouTube videos."
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Space for future testimonials -->
+            <div class="mt-12 p-10 border-2 border-dashed border-gray-700 rounded-xl text-center">
+                <h3 class="text-xl font-semibold text-gray-400">More Client Testimonials Coming Soon</h3>
+                <p class="text-gray-500 mt-2">Working with amazing clients to deliver exceptional video editing services</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-800">Contact Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-envelope mr-4 text-deep-blue text-xl"></i>
-                        <a href="mailto:sneh2006.zinzuavdiya@gmail.com" class="text-gray-700 hover:text-accent transition-colors">sneh2006.zinzuavdiya@gmail.com</a>
-                    </div>
-                    <div class="flex items-center mb-8">
-                        <i class="fas fa-phone-alt mr-4 text-deep-blue text-xl"></i>
-                        <a href="tel:9054434117" class="text-gray-700 hover:text-accent transition-colors">9054434117</a>
+    <section id="contact" class="py-20 bg-gradient-to-b from-gray-900 to-indigo-900 relative">
+        <!-- Decorative elements -->
+        <div class="glowing-dot" style="top: 20%; left: 5%;"></div>
+        <div class="glowing-dot" style="bottom: 30%; right: 10%;"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center section-title">Contact Me</h2>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gradient-to-br from-indigo-900 to-purple-900 p-8 rounded-xl shadow-2xl transform transition-all hover:scale-105" style="box-shadow: 0 10px 30px rgba(26, 35, 126, 0.3);">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Get In Touch</h3>
+                    
+                    <div class="mb-6 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center mr-4 transform transition-all hover:rotate-12">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Email</p>
+                            <p class="text-white">sneh2006.zinzuavdiya@gmail.com</p>
+                        </div>
                     </div>
                     
-                    <h3 class="text-2xl font-semibold mb-4">Follow Me</h3>
+                    <div class="mb-6 flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center mr-4 transform transition-all hover:rotate-12">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Phone</p>
+                            <p class="text-white">9054434117</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-semibold mb-4 mt-8 text-white">Follow Me</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.youtube.com/watch?v=yaoAUKdeTd8" target="_blank" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                        <a href="#" class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon w-10 h-10 rounded-full flex items-center justify-center">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="fade-in">
+                <div class="bg-black bg-opacity-30 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-2xl" style="box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Send Me a Message</h3>
+                    
                     <form class="contact-form">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Email" required>
-                        </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Your Message" required></textarea>
+                            <label for="name" class="block text-gray-400 mb-2">Name</label>
+                            <input type="text" id="name" placeholder="Your Name" class="w-full">
                         </div>
-                        <button type="submit" class="btn-primary px-8 py-3 rounded-lg text-white font-semibold">Send Message</button>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-400 mb-2">Email</label>
+                            <input type="email" id="email" placeholder="Your Email" class="w-full">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-400 mb-2">Message</label>
+                            <textarea id="message" rows="5" placeholder="Your Message" class="w-full"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full flex justify-center items-center">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -331,48 +809,61 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-deep-blue text-white">
-        <div class="container mx-auto px-4">
+    <footer class="py-10 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex justify-center md:justify-start space-x-6 mb-4">
-                        <a href="#home" class="hover:text-accent transition-colors">Home</a>
-                        <a href="#portfolio" class="hover:text-accent transition-colors">Portfolio</a>
-                        <a href="#about" class="hover:text-accent transition-colors">About</a>
-                        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2 gradient-text">Sneh Zinzuvadiya</h2>
+                    <p>Professional Video Editor</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
+                        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                        <a href="#portfolio" class="hover:text-cyan-400 transition-colors">Portfolio</a>
+                        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+                        <a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a>
+                        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
                     </div>
-                    <p>© 2025 Sneh Zinzuvadiya. All rights reserved.</p>
                 </div>
-                <div>
-                    <a href="#home" class="btn-primary px-6 py-2 rounded-full text-white inline-block">
-                        <i class="fas fa-arrow-up mr-2"></i> Back to Top
-                    </a>
-                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>© 2025 Sneh Zinzuvadiya. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Fade-in animation for elements
+        // Animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            function checkFade() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
                     
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
                 });
-            }
+            });
             
-            // Initial check
-            checkFade();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkFade);
+            // Random positioning for glowing dots
+            setInterval(() => {
+                document.querySelectorAll('.glowing-dot').forEach(dot => {
+                    const randomX = Math.random() * 20 - 10;
+                    const randomY = Math.random() * 20 - 10;
+                    dot.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                });
+            }, 2000);
         });
     </script>
 </body>
